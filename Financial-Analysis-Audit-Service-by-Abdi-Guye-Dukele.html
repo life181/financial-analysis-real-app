@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadBtn = document.getElementById('downloadPdfBtn');
   const printBtn = document.getElementById('printPdfBtn');
   let downloadCount = 0;
-  const MAX_DOWNLOADS = 10;
+  const MAX_DOWNLOADS = 5;
 
   function updateDownloadCounts(client) {
     let clientData = localStorage.getItem(client.client_name);
