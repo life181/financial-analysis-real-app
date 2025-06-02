@@ -12,6 +12,132 @@
       background: #f7fafc;
       color: #222;
     }
+    /* Navbar Styles */
+    .navbar {
+      width: 100%;
+      background: linear-gradient(90deg, #249e49 0%, #2d9cdb 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.1rem;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      box-shadow: 0 2px 8px rgba(44,165,131,0.10);
+    }
+    .nav-logo {
+      font-size: 1.18rem;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+    .nav-logo span {
+      font-size: 1.5em;
+      margin-right: 0.2em;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.3em;
+    }
+    .lang-switch {
+      background: #fff200;
+      color: #222;
+      border: none;
+      border-radius: 0.4em;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 0.25em 0.82em;
+      cursor: pointer;
+      margin-right: 0.5em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-switch:hover, .lang-switch:focus {
+      background: #222;
+      color: #fff200;
+      outline: none;
+    }
+    .nav-share {
+      display: flex;
+      gap: 0.6em;
+      align-items: center;
+    }
+    .nav-share a {
+      display: flex;
+      align-items: center;
+      padding: 0.18em;
+      border-radius: 100%;
+      background: rgba(255,255,255,0.15);
+      transition: background 0.18s, transform 0.18s;
+      text-decoration: none;
+      margin-right: 0.01em;
+    }
+    .nav-share a:focus, .nav-share a:hover {
+      background: #fff200;
+      transform: scale(1.13);
+    }
+    .nav-share svg {
+      width: 1.4em;
+      height: 1.4em;
+      display: block;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      cursor: pointer;
+      margin-left: 0.7em;
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 0.7rem 0.5rem;
+      }
+      .nav-actions {
+        flex-direction: column;
+        gap: 0.8em;
+        align-items: flex-end;
+      }
+      .nav-share {
+        margin-top: 0.5em;
+      }
+    }
+    @media (max-width: 500px) {
+      .nav-logo {
+        font-size: 1em;
+      }
+      .nav-share svg {
+        width: 1.1em;
+        height: 1.1em;
+      }
+      .lang-switch {
+        font-size: 0.96em;
+        padding: 0.22em 0.62em;
+      }
+    }
+    /* Navbar Responsive Hamburger */
+    @media (max-width: 500px) {
+      .nav-actions {
+        display: none;
+        width: 100%;
+        background: linear-gradient(90deg, #2d9cdb 0%, #249e49 100%);
+        padding: 0.8em 0.45em 0.45em 0.45em;
+        border-radius: 0 0 0.7em 0.7em;
+        margin-top: 0.4em;
+      }
+      .nav-actions.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+    /* Main Content Styles */
     #introDescription {
       padding: 2rem 1rem;
       background: linear-gradient(90deg, #e8f4fd 0%, #f3fded 100%);
@@ -125,7 +251,6 @@
       text-align: center;
       box-shadow: 0 2px 8px rgba(44, 165, 131, 0.07);
     }
-
     /* Ad Banner Styles */
     .ad-banner {
       max-width: 600px;
@@ -134,7 +259,6 @@
       display: flex;
       justify-content: center;
     }
-
     .ad-link {
       display: flex;
       align-items: center;
@@ -152,55 +276,46 @@
       position: relative;
       animation: pulse 1.4s infinite;
     }
-
     .ad-link:hover, .ad-link:focus {
       box-shadow: 0 4px 32px 0 #ffe082, 0 2px 16px rgba(44, 165, 131, 0.15);
       transform: scale(1.035);
       outline: none;
     }
-
     .ad-emoji {
       font-size: 2em;
       margin-right: 0.5em;
       animation: swing 2s infinite alternate;
     }
-
     @keyframes swing {
       from { transform: rotate(-10deg);}
       to { transform: rotate(10deg);}
     }
-
     .ad-text {
       display: flex;
       flex-direction: column;
       gap: 0.2em;
     }
-
     .ad-highlight {
       color: #fff200;
       background: #2d9cdb;
       padding: 0 0.3em;
       border-radius: 0.3em;
     }
-
     .ad-subtext {
       font-size: 0.95em;
       font-weight: 500;
       color: #249e49;
     }
-
     .ad-arrow {
       font-size: 2em;
       color: #fff200;
       margin-left: 0.6em;
       transition: transform 0.2s;
     }
-
     .ad-link:hover .ad-arrow,
     .ad-link:focus .ad-arrow {
       transform: translateX(7px) scale(1.15);
     }
-
     @media (max-width: 600px) {
       .container, #introDescription {
         padding: 1rem 0.4rem;
@@ -219,7 +334,6 @@
         font-size: 0.97rem;
         padding: 0.8rem 0.3rem;
       }
-
       .ad-banner {
         max-width: 98vw;
         margin: 1.3rem auto;
@@ -235,7 +349,6 @@
         font-size: 1.4em;
       }
     }
-
     @keyframes pulse {
       0% {
         box-shadow: 0 4px 20px rgba(44, 165, 131, 0.09), 0 0 0 0 #ffe082;
@@ -250,37 +363,82 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span>💸</span>
+      <span id="navTitle">Certified Financial Analysis</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle Navigation" onclick="toggleNav()">
+      &#9776;
+    </button>
+    <div class="nav-actions" id="navActions">
+      <button class="lang-switch" onclick="switchLanguage()" id="langBtn">አማርኛ</button>
+      <div class="nav-share">
+        <!-- Telegram -->
+        <a href="https://t.me/share/url?url=https://financial-analysis-real-app.vercel.app/&text=Certified+Financial+Statements+in+10+Minutes+with+up+to+40%25+commission.+Refer+now%21"
+           target="_blank" title="Share on Telegram" aria-label="Telegram">
+          <svg fill="#229ED9" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#229ED9"/><path d="M13.073 21.925c-.452 0-.37-.17-.523-.596l-1.313-4.325 8.164-5.157c.398-.238.691-.106.419.151l-6.604 5.999c-.233.21-.338.421.073.631l5.246 2.368c.399.181.695-.037.807-.29l2.897-8.592c.17-.501-.14-.723-.516-.573L7.867 14.079c-.498.19-.492.471-.09.602l3.021.944 1.003 3.212c.127.41.225.557.674.405l2.11-.726c.452-.155.661-.1.523.367l-.759 2.632c-.138.47-.35.579-.8.579z" fill="#fff"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://financial-analysis-real-app.vercel.app/"
+           target="_blank" title="Share on Facebook" aria-label="Facebook">
+          <svg fill="#1877F3" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1877F3"/><path d="M21 17.44l.494-3.221h-3.13V12.18c0-.882.433-1.74 1.822-1.74h1.41V7.743s-1.28-.219-2.503-.219c-2.553 0-4.225 1.548-4.225 4.352v1.343H10v3.222h2.868V24h3.497v-6.56h2.635z" fill="#fff"/></svg>
+        </a>
+        <!-- SMS -->
+        <a href="sms:?body=Get+Certified+Financial+Statements+in+10+Minutes%21+Earn+up+to+40%25+commission.+https%3A%2F%2Ffinancial-analysis-real-app.vercel.app%2F"
+           title="Share via SMS" aria-label="SMS">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#ffbb00"/><path d="M23 10H9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9.5l3.5 2v-2c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm0 10h-1v2l-2-2H9v-8h14v8z" fill="#fff"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" onclick="navigator.clipboard.writeText('https://financial-analysis-real-app.vercel.app/');alert(lang[language].instaCopy);return false;"
+           title="Copy Link for Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 32 32"><radialGradient id="ig" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+            <stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/>
+          </radialGradient>
+          <circle cx="16" cy="16" r="16" fill="url(#ig)"/>
+          <rect x="9" y="9" width="14" height="14" rx="4" fill="#fff"/><circle cx="16" cy="16" r="4.5" fill="url(#ig)"/><circle cx="21.5" cy="10.5" r="1" fill="url(#ig)"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://financial-analysis-real-app.vercel.app/&title=Certified+Financial+Statements+in+10+Minutes+with+up+to+40%25+commission.+Refer+now%21"
+           target="_blank" title="Share on LinkedIn" aria-label="LinkedIn">
+          <svg fill="#0077B5" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0077B5"/><rect x="9" y="13" width="3" height="10" fill="#fff"/><circle cx="10.5" cy="10.5" r="1.5" fill="#fff"/><rect x="15" y="13" width="3" height="10" fill="#fff"/><path d="M18 13c1.656 0 3 1.567 3 3.5V23h-3v-6c0-.828-.672-1.5-1.5-1.5S15 16.172 15 17v6h-3v-10h3v1.342C15.774 13.497 16.84 13 18 13z" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <div id="introDescription">
-    🚀 <span class="highlight">Certified Financial Analysis &amp; Audit Service</span> by <strong>Abdi Guye Dukele</strong> <br>
-    <span style="font-size:1rem; color:#249e49; font-weight:500;">Powering Your Business Decisions with Trust &amp; Precision!</span>
+    🚀 <span class="highlight" id="mainTitle">Certified Financial Analysis &amp; Audit Service</span> <span id="byText">by</span> <strong id="authorName">Abdi Guye Dukele</strong> <br>
+    <span id="mainSlogan" style="font-size:1rem; color:#249e49; font-weight:500;">Powering Your Business Decisions with Trust &amp; Precision!</span>
   </div>
 
   <div class="container">
-    <h1>Unlock Fast, Certified Financial Statements!</h1>
-    <div class="tagline">
+    <h1 id="h1">Unlock Fast, Certified Financial Statements!</h1>
+    <div class="tagline" id="tagline">
       <strong>Are you a bank manager or loan facilitator?</strong> <br>
       <span style="color:#249e49;">Earn <span style="font-weight:700;">30% commission</span> for every successful client!</span>
     </div>
 
-    <div class="benefit-banner">
+    <div class="benefit-banner" id="benefitBanner">
       💸 <b>Mutual Benefit:</b> <span style="color:#fff200;">30%</span> for YOU, <span style="color:#fff200;">70%</span> for us.<br>
       <span style="font-size:0.95em;">Just refer, fill the form, and get paid fast with every financial statement delivered!</span>
     </div>
 
-    <div class="hotline">
+    <div class="hotline" id="hotline">
       <span class="icon">☎️</span>
       <span>
-        <b>Hotline:</b> <a href="tel:0936463108" style="color:#d97706;text-decoration:underline;">0936463108</a> <br>
-        <span style="font-size:0.97em;">Call us anytime to guide you — instructions available in Amharic, Afan Oromo & English!</span>
+        <b id="hotlineLabel">Hotline:</b> <a href="tel:0936463108" style="color:#d97706;text-decoration:underline;">0936463108</a> <br>
+        <span id="hotlineDesc" style="font-size:0.97em;">Call us anytime to guide you — instructions available in Amharic, Afan Oromo & English!</span>
       </span>
     </div>
 
-    <div class="info-banner">
-      ⏱️ <b>Lightning-Fast Service:</b> Instruct us via hotline or fill the form &mdash; <span style="color:#2d9cdb;">your Financial Analysis is ready within <b>10 minutes!</b></span> <br>
-      📲 <b>We’ll send your statement instantly via Telegram!</b>
+    <div class="info-banner" id="infoBanner">
+      ⏱️ <b id="fastLabel">Lightning-Fast Service:</b> Instruct us via hotline or fill the form &mdash; <span style="color:#2d9cdb;">your Financial Analysis is ready within <b>10 minutes!</b></span> <br>
+      📲 <b id="sendLabel">We’ll send your statement instantly via Telegram!</b>
     </div>
 
-    <ul class="steps">
+    <ul class="steps" id="stepsList">
       <li>
         <strong>Enter Client &amp; Date Info:</strong> Fill out your client’s name and Ethiopian date.
         <br>
@@ -309,7 +467,7 @@
       </li>
     </ul>
 
-    <div class="cta">
+    <div class="cta" id="ctaBox">
       <span>Start Now &amp; Earn!</span><br>
       <span style="font-size:1.1em;">Fill out the form, help your clients, and receive <b>30% commission</b> instantly.<br>
       <span style="color:#fff200;">Your payment is always secured with us!</span>
@@ -321,65 +479,62 @@
 
   <!-- Advertisement Banner Button -->
   <div class="ad-banner">
-    <a href="Financial-Analysis-Audit-Service-by-Abdi-Guye-Dukele.html" target="_blank" class="ad-link">
+    <a href="Financial-Analysis-Audit-Service-by-Abdi-Guye-Dukele.html" target="_blank" class="ad-link" id="adLink">
       <span class="ad-emoji">💰</span>
       <span class="ad-text">
-        <strong>Let’s Continue &amp; Get Paid in <span class="ad-highlight">10 Minutes!</span></strong><br>
-        <span class="ad-subtext">Fill the Form · Help Your Client · <b>Instant Commission!</b></span>
+        <strong id="adContinue">Let’s Continue &amp; Get Paid in <span class="ad-highlight">10 Minutes!</span></strong><br>
+        <span class="ad-subtext" id="adFill">Fill the Form · Help Your Client · <b>Instant Commission!</b></span>
       </span>
-      <span class="ad-arrow">Click here →</span>
+      <span class="ad-arrow" id="adArrow">Click here →</span>
     </a>
   </div>
 
   <!-- Start of Super-Attractive Advertisement & Share Section -->
   <section style="max-width:700px;margin:2.3rem auto 1.7rem auto;padding:1.4rem 1rem 1.2rem 1rem;background:linear-gradient(93deg,#e8f4fd 0%,#f3fded 100%);border-radius:1.2rem;box-shadow:0 2px 16px rgba(44,165,131,0.08);text-align:center;">
-    <h2 style="font-size:1.35rem;color:#2d9cdb;margin-bottom:0.5rem;font-weight:800;letter-spacing:0.01em;">
+    <h2 id="whyTitle" style="font-size:1.35rem;color:#2d9cdb;margin-bottom:0.5rem;font-weight:800;letter-spacing:0.01em;">
       🎉 <span style="color:#249e49;">Why Choose Our Fast Digital Financial Service?</span> 🎉
     </h2>
     <div style="display:flex;flex-wrap:wrap;gap:1.2em;justify-content:center;margin:1.35rem 0 1.7rem 0;">
       <div style="flex:1 1 180px;min-width:150px;max-width:230px;background:#fff;border-radius:0.8em;padding:1em 0.7em;box-shadow:0 2px 8px #2d9cdb12;font-size:1.06em;">
         <span style="font-size:2em;">🤝</span><br>
-        <b style="color:#2d9cdb;">Mutual Benefit</b><br>
-        <span style="color:#249e49;font-weight:700;">Win-Win for All</span><br>
-        <small>Earn <b>30%</b> commission — refer a bank manager, get <b style="color:#ffbb00;">40%</b>!</small>
+        <b id="ben1">Mutual Benefit</b><br>
+        <span style="color:#249e49;font-weight:700;" id="ben1desc">Win-Win for All</span><br>
+        <small id="ben1extra">Earn <b>30%</b> commission — refer a bank manager, get <b style="color:#ffbb00;">40%</b>!</small>
       </div>
       <div style="flex:1 1 180px;min-width:150px;max-width:230px;background:#fff;border-radius:0.8em;padding:1em 0.7em;box-shadow:0 2px 8px #2d9cdb12;font-size:1.06em;">
         <span style="font-size:2em;">⚡</span><br>
-        <b style="color:#249e49;">Lightning Fast</b><br>
-        <span style="color:#2d9cdb;font-weight:700;">Save Your Time!</span><br>
-        <small>Get certified financials in just <b>10 minutes</b> — skip the wait!</small>
+        <b id="ben2">Lightning Fast</b><br>
+        <span style="color:#2d9cdb;font-weight:700;" id="ben2desc">Save Your Time!</span><br>
+        <small id="ben2extra">Get certified financials in just <b>10 minutes</b> — skip the wait!</small>
       </div>
       <div style="flex:1 1 180px;min-width:150px;max-width:230px;background:#fff;border-radius:0.8em;padding:1em 0.7em;box-shadow:0 2px 8px #2d9cdb12;font-size:1.06em;">
         <span style="font-size:2em;">🎯</span><br>
-        <b style="color:#2d9cdb;">Precision &amp; Accuracy</b><br>
-        <span style="color:#249e49;font-weight:700;">No More Errors</span><br>
-        <small>Auto-generated by experts — always accurate, always reliable.</small>
+        <b id="ben3">Precision &amp; Accuracy</b><br>
+        <span style="color:#249e49;font-weight:700;" id="ben3desc">No More Errors</span><br>
+        <small id="ben3extra">Auto-generated by experts — always accurate, always reliable.</small>
       </div>
       <div style="flex:1 1 180px;min-width:150px;max-width:230px;background:#fff;border-radius:0.8em;padding:1em 0.7em;box-shadow:0 2px 8px #2d9cdb12;font-size:1.06em;">
         <span style="font-size:2em;">📈</span><br>
-        <b style="color:#249e49;">Grow Your Earnings</b><br>
-        <span style="color:#2d9cdb;font-weight:700;">Boost Your Pay!</span><br>
-        <small>Share with more managers — <b style="color:#ffbb00;">40% commission possible!</b></small>
+        <b id="ben4">Grow Your Earnings</b><br>
+        <span style="color:#2d9cdb;font-weight:700;" id="ben4desc">Boost Your Pay!</span><br>
+        <small id="ben4extra">Share with more managers — <b style="color:#ffbb00;">40% commission possible!</b></small>
       </div>
     </div>
     <div style="color:#222;font-size:1.08em;margin-bottom:1.5em;">
-      <span style="display:inline-block;margin:0.3em 0;"><b>Other Advantages:</b></span>
-      <ul style="text-align:left;display:inline-block;margin:0 auto;padding-left:1.2em;list-style:none;">
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Zero Paperwork:</b> 100% digital process</li>
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Multi-language Support:</b> Amharic, Afan Oromo, English</li>
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Secure Payment:</b> Your commission is always guaranteed</li>
-
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Being Member of the founders:</b> when you share it more with others, you can become a member of the founders' network while you are also enjoying the commission</li>
-
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Instant Statement via Telegram</b></li>
-        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b>Yearly Record Keeping</b> for organized future reference</li>
+      <span style="display:inline-block;margin:0.3em 0;"><b id="othAdv">Other Advantages:</b></span>
+      <ul style="text-align:left;display:inline-block;margin:0 auto;padding-left:1.2em;list-style:none;" id="othAdvList">
+        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b id="adv1">Zero Paperwork:</b> <span id="adv1desc">100% digital process</span></li>
+        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b id="adv2">Multi-language Support:</b> <span id="adv2desc">Amharic, Afan Oromo, English</span></li>
+        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <b id="adv3">Secure Payment:</b> <span id="adv3desc">Your commission is always guaranteed</span></li>
+        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <span id="adv4"><b>Instant Statement via Telegram</b></span></li>
+        <li style="margin-bottom:0.44em;"><span style="color:#249e49;font-size:1.23em;vertical-align:middle;">✅</span> <span id="adv5"><b>Yearly Record Keeping</b> for organized future reference</span></li>
       </ul>
     </div>
-    <div style="font-size:1.12em;font-weight:700;color:#2d9cdb;margin-bottom:0.7em;">
+    <div style="font-size:1.12em;font-weight:700;color:#2d9cdb;margin-bottom:0.7em;" id="shareEarnMore">
       <span style="background:#fff200;padding:0.12em 0.5em;border-radius:0.6em;color:#222;">
-        💥 <b>Share &amp; Earn More!</b> 💥 <br>
+        💥 <b id="shareEarn">Share &amp; Earn More!</b> 💥 <br>
       </span>
-      <span style="display:block;font-size:0.98em;font-weight:500;color:#249e49;margin-top:0.5em;">
+      <span style="display:block;font-size:0.98em;font-weight:500;color:#249e49;margin-top:0.5em;" id="shareEarnText">
         Share this service with bank managers &amp; loan officers —<br>
         <span style="color:#ffbb00;">Earn up to <b>40% commission</b> instantly!</span>
       </span>
@@ -389,41 +544,254 @@
       <!-- Telegram -->
       <a href="https://t.me/share/url?url=https://financial-analysis-real-app.vercel.app/&text=Certified+Financial+Statements+in+10+Minutes+with+up+to+40%25+commission.+Refer+now%21"
          style="background:#229ED9;color:#fff;font-size:1.4em;border-radius:50%;width:2.5em;height:2.5em;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 1px 8px #229ED933;"
-         title="Share on Telegram" target="_blank">
-        <span aria-label="Telegram" style="font-size:1.25em;">&#128222;</span>
+         title="Share on Telegram" target="_blank" aria-label="Telegram">
+        <svg fill="#229ED9" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#229ED9"/><path d="M13.073 21.925c-.452 0-.37-.17-.523-.596l-1.313-4.325 8.164-5.157c.398-.238.691-.106.419.151l-6.604 5.999c-.233.21-.338.421.073.631l5.246 2.368c.399.181.695-.037.807-.29l2.897-8.592c.17-.501-.14-.723-.516-.573L7.867 14.079c-.498.19-.492.471-.09.602l3.021.944 1.003 3.212c.127.41.225.557.674.405l2.11-.726c.452-.155.661-.1.523.367l-.759 2.632c-.138.47-.35.579-.8.579z" fill="#fff"/></svg>
       </a>
       <!-- Facebook -->
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://financial-analysis-real-app.vercel.app/"
          style="background:#1877f3;color:#fff;font-size:1.4em;border-radius:50%;width:2.5em;height:2.5em;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 1px 8px #1877f333;"
-         title="Share on Facebook" target="_blank">
-        <span aria-label="Facebook" style="font-size:1.25em;">&#128100;</span>
+         title="Share on Facebook" target="_blank" aria-label="Facebook">
+        <svg fill="#1877F3" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1877F3"/><path d="M21 17.44l.494-3.221h-3.13V12.18c0-.882.433-1.74 1.822-1.74h1.41V7.743s-1.28-.219-2.503-.219c-2.553 0-4.225 1.548-4.225 4.352v1.343H10v3.222h2.868V24h3.497v-6.56h2.635z" fill="#fff"/></svg>
       </a>
       <!-- SMS -->
       <a href="sms:?body=Get+Certified+Financial+Statements+in+10+Minutes%21+Earn+up+to+40%25+commission.+https%3A%2F%2Ffinancial-analysis-real-app.vercel.app%2F"
          style="background:#ffbb00;color:#222;font-size:1.4em;border-radius:50%;width:2.5em;height:2.5em;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 1px 8px #ffbb0033;"
-         title="Share via SMS">
-        <span aria-label="SMS" style="font-size:1.25em;">&#128241;</span>
+         title="Share via SMS" aria-label="SMS">
+        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#ffbb00"/><path d="M23 10H9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9.5l3.5 2v-2c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm0 10h-1v2l-2-2H9v-8h14v8z" fill="#fff"/></svg>
       </a>
       <!-- Instagram (copy link) -->
-      <a href="#" onclick="navigator.clipboard.writeText('https://financial-analysis-real-app.vercel.app/');alert('Link copied! Share it on Instagram DM or Bio.');return false;"
+      <a href="#" onclick="navigator.clipboard.writeText('https://financial-analysis-real-app.vercel.app/');alert(lang[language].instaCopy);return false;"
          style="background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);color:#fff;font-size:1.4em;border-radius:50%;width:2.5em;height:2.5em;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 1px 8px #d6249f33;"
-         title="Copy Link for Instagram">
-        <span aria-label="Instagram" style="font-size:1.25em;">&#128248;</span>
+         title="Copy Link for Instagram" aria-label="Instagram">
+        <svg viewBox="0 0 32 32"><radialGradient id="ig2" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+          <stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/>
+        </radialGradient>
+        <circle cx="16" cy="16" r="16" fill="url(#ig2)"/>
+        <rect x="9" y="9" width="14" height="14" rx="4" fill="#fff"/><circle cx="16" cy="16" r="4.5" fill="url(#ig2)"/><circle cx="21.5" cy="10.5" r="1" fill="url(#ig2)"/></svg>
       </a>
       <!-- LinkedIn -->
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://financial-analysis-real-app.vercel.app/&title=Certified+Financial+Statements+in+10+Minutes+with+up+to+40%25+commission.+Refer+now%21"
          style="background:#0077b5;color:#fff;font-size:1.4em;border-radius:50%;width:2.5em;height:2.5em;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 1px 8px #0077b533;"
-         title="Share on LinkedIn" target="_blank">
-        <span aria-label="LinkedIn" style="font-size:1.25em;">&#128188;</span>
+         title="Share on LinkedIn" target="_blank" aria-label="LinkedIn">
+        <svg fill="#0077B5" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0077B5"/><rect x="9" y="13" width="3" height="10" fill="#fff"/><circle cx="10.5" cy="10.5" r="1.5" fill="#fff"/><rect x="15" y="13" width="3" height="10" fill="#fff"/><path d="M18 13c1.656 0 3 1.567 3 3.5V23h-3v-6c0-.828-.672-1.5-1.5-1.5S15 16.172 15 17v6h-3v-10h3v1.342C15.774 13.497 16.84 13 18 13z" fill="#fff"/></svg>
       </a>
     </div>
     <div style="font-size:0.97em;color:#888;margin-top:0.6em;">
-      <span style="font-size:1em;">Or copy this link: </span>
+      <span style="font-size:1em;" id="orCopy">Or copy this link: </span>
       <input style="border:1px solid #ccc;border-radius:0.4em;padding:0.37em 0.7em;width:170px;font-size:0.97em;margin-right:0.45em;" readonly value="https://financial-analysis-real-app.vercel.app/" id="shareLinkInput">
-      <button style="background:#249e49;color:#fff;border:none;border-radius:0.4em;padding:0.33em 0.55em;font-size:1em;cursor:pointer;" onclick="navigator.clipboard.writeText(document.getElementById('shareLinkInput').value);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1200);">Copy</button>
+      <button style="background:#249e49;color:#fff;border:none;border-radius:0.4em;padding:0.33em 0.55em;font-size:1em;cursor:pointer;" onclick="navigator.clipboard.writeText(document.getElementById('shareLinkInput').value);this.innerText=lang[language].copied;setTimeout(()=>this.innerText=lang[language].copy,1200);" id="copyBtn">Copy</button>
     </div>
   </section>
   <!-- End of Super-Attractive Advertisement & Share Section -->
 
+  <script>
+    // Language dictionary
+    const lang = {
+      en: {
+        navTitle: "Certified Financial Analysis",
+        langBtn: "አማርኛ",
+        mainTitle: "Certified Financial Analysis & Audit Service",
+        byText: "by",
+        authorName: "Abdi Guye Dukele",
+        mainSlogan: "Powering Your Business Decisions with Trust & Precision!",
+        h1: "Unlock Fast, Certified Financial Statements!",
+        tagline: "<strong>Are you a bank manager or loan facilitator?</strong> <br><span style='color:#249e49;'>Earn <span style='font-weight:700;'>30% commission</span> for every successful client!</span>",
+        benefitBanner: "💸 <b>Mutual Benefit:</b> <span style='color:#fff200;'>30%</span> for YOU, <span style='color:#fff200;'>70%</span> for us.<br><span style='font-size:0.95em;'>Just refer, fill the form, and get paid fast with every financial statement delivered!</span>",
+        hotlineLabel: "Hotline:",
+        hotlineDesc: "Call us anytime to guide you — instructions available in Amharic, Afan Oromo & English!",
+        fastLabel: "Lightning-Fast Service:",
+        sendLabel: "We’ll send your statement instantly via Telegram!",
+        steps: [
+          "<strong>Enter Client & Date Info:</strong> Fill out your client’s name and Ethiopian date.<br><em>Example: Client Name: Abdi Guye Dukele, Year: 2014, Month: Sene, Day: 30</em>",
+          "<strong>Review Cover Page:</strong> Instantly preview a professionally generated cover with client details.",
+          "<strong>Fill Financial Data:</strong> Simple forms for Income, Expenses, Balance Sheet, Assets, Liabilities, and Capital.",
+          "<strong>Preview & Print Report:</strong> See the complete PDF before payment.",
+          "<strong>Pay & Upload Receipt:</strong> Pay <span class='highlight'>10,000 ETB</span>. Upload your payment receipt and phone number for approval.",
+          "<strong>Admin Approval:</strong> Our admin quickly verifies your receipt. Once approved, you can download or print!",
+          "<strong>Download/Print Limit:</strong> Access the report up to <span class='highlight'>3 times per year</span>. Multi-year support included!",
+          "<strong>After Downloading:</strong> <span style='color:#2d9cdb;'>Fill out the convenient entry form</span> to keep your balance sheet and financial statement records organized for future reference."
+        ],
+        ctaBox: "<span>Start Now &amp; Earn!</span><br><span style='font-size:1.1em;'>Fill out the form, help your clients, and receive <b>30% commission</b> instantly.<br><span style='color:#fff200;'>Your payment is always secured with us!</span><br><span style='font-size:1em;color:#fff;'>Ready in just <b>10 minutes</b> — delivered via Telegram!</span></span>",
+        adContinue: "Let’s Continue &amp; Get Paid in <span class='ad-highlight'>10 Minutes!</span>",
+        adFill: "Fill the Form · Help Your Client · <b>Instant Commission!</b>",
+        adArrow: "Click here →",
+        whyTitle: "🎉 <span style='color:#249e49;'>Why Choose Our Fast Digital Financial Service?</span> 🎉",
+        ben1: "Mutual Benefit", ben1desc: "Win-Win for All", ben1extra: "Earn <b>30%</b> commission — refer a bank manager, get <b style='color:#ffbb00;'>40%</b>!",
+        ben2: "Lightning Fast", ben2desc: "Save Your Time!", ben2extra: "Get certified financials in just <b>10 minutes</b> — skip the wait!",
+        ben3: "Precision & Accuracy", ben3desc: "No More Errors", ben3extra: "Auto-generated by experts — always accurate, always reliable.",
+        ben4: "Grow Your Earnings", ben4desc: "Boost Your Pay!", ben4extra: "Share with more managers — <b style='color:#ffbb00;'>40% commission possible!</b>",
+        othAdv: "Other Advantages:",
+        adv1: "Zero Paperwork:", adv1desc: "100% digital process",
+        adv2: "Multi-language Support:", adv2desc: "Amharic, Afan Oromo, English",
+        adv3: "Secure Payment:", adv3desc: "Your commission is always guaranteed",
+        adv4: "<b>Instant Statement via Telegram</b>",
+        adv5: "<b>Yearly Record Keeping</b> for organized future reference",
+        shareEarn: "Share & Earn More!",
+        shareEarnText: "Share this service with bank managers & loan officers —<br><span style='color:#ffbb00;'>Earn up to <b>40% commission</b> instantly!</span>",
+        orCopy: "Or copy this link: ",
+        copy: "Copy",
+        copied: "Copied!",
+        instaCopy: "Link copied! Share it on Instagram DM or Bio."
+      },
+      am: {
+        navTitle: "የፋይናንስ ትክክለኛ ትንተና",
+        langBtn: "Afaan Oromoo",
+        mainTitle: "የፋይናንስ ትክክለኛ ትንተናና ኦዲት አገልግሎት",
+        byText: "በ",
+        authorName: "አብዲ ጉዬ ዱቀሌ",
+        mainSlogan: "ንግድዎን በእምነትና ትክክለኛነት የሚያገኙ አገልግሎት!",
+        h1: "ፈጣን የተረጋገጠ የፋይናንስ መግለጫ ያግኙ!",
+        tagline: "<strong>ባንክ አስተዳዳሪ ወይም የብድር ባለሞያ ነዎት?</strong> <br><span style='color:#249e49;'>ለእያንዳንዱ ተሳካ ደንበኛ 30% ኮሚሽን ያግኙ!</span>",
+        benefitBanner: "💸 <b>በሁለቱም የሚጠቅመው:</b> <span style='color:#fff200;'>30%</span> ለእርስዎ፣ <span style='color:#fff200;'>70%</span> ለእኛ።<br><span style='font-size:0.95em;'>ደንበኛ ያስገቡ፣ ቅፅ ይሙሉ፣ የገንዘብ ክፍያ በፍጥነት ይቀበሉ!</span>",
+        hotlineLabel: "ስልክ መስመር:",
+        hotlineDesc: "በአማርኛ፣ ኦሮምኛ እና እንግሊዝኛ መመሪያ አለን። ሁልጊዜ ይደውሉ።",
+        fastLabel: "ፍጥነት አገልግሎት:",
+        sendLabel: "የፋይናንስ መግለጫዎን በቴሌግራም ይልካል!",
+        steps: [
+          "<strong>የደንበኛ ስም እና ቀን አስገባ:</strong> የደንበኛዎን ስም እና የኢትዮጵያ ቀን ያስገቡ።<br><em>ምሳሌ፡ የደንበኛ ስም፡ አብዲ ጉዬ ዱቀሌ፣ ዓመት፡ 2014፣ ወር፡ ሰኔ፣ ቀን፡ 30</em>",
+          "<strong>የመክፈቻ ገፅ ይመልከቱ:</strong> የተሟላ ደንበኛ መረጃ ያለው መክፈቻ ገፅ ይታያል።",
+          "<strong>የፋይናንስ መረጃ ይሙሉ:</strong> የገቢ፣ ወጪ፣ ባለንስ ሉህ፣ ንብረት፣ ታጠቃዎች፣ የዋናው ዋጋ ቅፅዎች ቀላል ናቸው።",
+          "<strong>የሪፖርት ቅድመ እይታ ወይም አትም:</strong> የተጠናቀቀውን PDF በፍፁም ቅድመ እይታ ያሳያል።",
+          "<strong>ክፍያ ይከፍሉ እና ማስረጃ ያስገቡ:</strong> <span class='highlight'>10,000 ብር</span> ይከፍሉ። የክፍያ ማስረጃዎን እና ስልክ ቁጥርዎን ያስገቡ።",
+          "<strong>የአስተዳዳሪ ማረጋገጫ:</strong> አስተዳዳሪው ፈጣን ማረጋገጫ ያደርጋል። የተፈቀደ ከሆነ ይንቀሳቀሱ ወይም ይታተሙ!",
+          "<strong>የማውጫ/መታተሚያ ግዴታ:</strong> የቪቲ ሪፖርቱን <span class='highlight'>በዓመት 3 ጊዜ</span> መውጣት ይችላሉ። በተደጋጋሚ ዓመታት ድጋፍ አለ!",
+          "<strong>ከወረዱ በኋላ:</strong> <span style='color:#2d9cdb;'>ቀላል ቅፅ ይሙሉ</span> እና የባለንስ ሉህና የፋይናንስ መግለጫዎን ለወደፊት ይዛቸው ያስቀምጡ።"
+        ],
+        ctaBox: "<span>አሁኑኑ ይጀምሩ እና ያግኙ!</span><br><span style='font-size:1.1em;'>ቅፅ ይሙሉ፣ ደንበኛውን ያግዙ፣ እና <b>30% ኮሚሽን</b> ያግኙ።<br><span style='color:#fff200;'>የእርስዎ ክፍያ የተጠበቀ ነው።</span><br><span style='font-size:1em;color:#fff;'>በ10 ደቂቃ ውስጥ ዝግጁ ነው – በቴሌግራም ይላካል!</span></span>",
+        adContinue: "ቀጥሉና በ <span class='ad-highlight'>10 ደቂቃ</span> ውስጥ ይቀበሉ!",
+        adFill: "ቅፅ ይሙሉ · ደንበኛዎን ያግዙ · <b>በአንድ ጊዜ ኮሚሽን!</b>",
+        adArrow: "እዚህ ጠቅ ያድርጉ →",
+        whyTitle: "🎉 <span style='color:#249e49;'>ለምን ፈጣን ዲጂታል አገልግሎታችንን ይመርጡ?</span> 🎉",
+        ben1: "በሁለቱም የሚጠቅመው", ben1desc: "ሁለቱም ይጠቀማሉ", ben1extra: "<b>30%</b> ኮሚሽን ያግኙ – ባንክ አስተዳዳሪን ማጋራት ከቻሉ <b style='color:#ffbb00;'>40%</b>!",
+        ben2: "ፍጥነት", ben2desc: "ጊዜዎን ያድኑ!", ben2extra: "የተረጋገጠ ፋይናንስ 10 ደቂቃ ውስጥ!",
+        ben3: "ትክክለኛነት", ben3desc: "ምንም ስህተት የለም", ben3extra: "በሙያ ባለሞያዎች የተዘጋጀ። ሁልጊዜ ትክክለኛ።",
+        ben4: "ገቢዎን አድጉ", ben4desc: "እሴትዎ ይጨምራል!", ben4extra: "ለተጨማሪ አስተዳዳሪዎች ማጋራት <b style='color:#ffbb00;'>40% ኮሚሽን!</b>",
+        othAdv: "ተጨማሪ የሚረዱ ጥቅሞች:",
+        adv1: "ወረቀት አይደለም:", adv1desc: "ፐርሰንት ዲጂታል",
+        adv2: "በቋንቋ ይደገፋል:", adv2desc: "አማርኛ፣ ኦሮምኛ፣ እንግሊዝኛ",
+        adv3: "የተረጋገጠ ክፍያ:", adv3desc: "ኮሚሽን ይጠበቃል",
+        adv4: "<b>በቴሌግራም ቅድሚያ ሪፖርት</b>",
+        adv5: "<b>ዓመታዊ ማስቀመጫ</b> የወደፊት ዝግጅት ለመስጠት",
+        shareEarn: "ማጋራት & በቀጥታ ማግኘት!",
+        shareEarnText: "ይህን አገልግሎት ከባንክ አስተዳዳሪዎች እና የብድር ባለሞያዎች ጋር ያጋሩ – <br><span style='color:#ffbb00;'>እስከ <b>40% ኮሚሽን</b> በቀጥታ!</span>",
+        orCopy: "ወይም ይህን አድራሻ ይቅዱ:",
+        copy: "ቅዳ",
+        copied: "ቅድ!", 
+        instaCopy: "አድራሻ ተቀድቷል! በInstagram DM ወይም Bio ውስጥ ያጋሩ።"
+      },
+      om: {
+        navTitle: "Odeeffannoo Maallaqaa Mirkanaa'e",
+        langBtn: "English",
+        mainTitle: "Tajaajila Odeeffannoo Maallaqaa fi Sakatta'a Mirkanaa'e",
+        byText: "kan",
+        authorName: "Abdi Guye Dukele",
+        mainSlogan: "Murtii daldalaa keessaniif amanamummaa fi sirrii kenninaa!",
+        h1: "Ibsa Maallaqaa Mirkanaa'e saffisaan argadhu!",
+        tagline: "<strong>Bulchaan baankii yookiin gargaaraa liqii ta'uu?</strong> <br><span style='color:#249e49;'>Liqaawwan milkaa'an hundaaf <span style='font-weight:700;'>30% komishiinii</span> argadhu!</span>",
+        benefitBanner: "💸 <b>Faayidaa Walii Galaa:</b> <span style='color:#fff200;'>30%</span> siif, <span style='color:#fff200;'>70%</span> nuuf.<br><span style='font-size:0.95em;'>Namoota beektu nuuf ergi, formii guuti, kaffaltii saffisaan argadhu!</span>",
+        hotlineLabel: "Lakkoofsa Bilbilaa:",
+        hotlineDesc: "Yeroo kamiyyuu bilbiluuf – Qajeelfamni Afaan Oromoo, Amaariffaa fi Ingliffaan jira!",
+        fastLabel: "Tajaajila Saffisaa:",
+        sendLabel: "Ibsi keessan saffisaan Telegram irratti ni ergama!",
+        steps: [
+          "<strong>Maqaa fi Guyyaa Guuti:</strong> Maqaa fi guyyaa Itoophiyaa guutaa.<br><em>Fakkeenya: Maqaa: Abdi Guye Dukele, Bara: 2014, Ji'a: Sene, Guyyaa: 30</em>",
+          "<strong>Fuula Jalqabaa Ilaali:</strong> Fuula jalqabaa omishame ilaali.",
+          "<strong>Daataa Maallaqaa Guuti:</strong> Galii, baasii, balance sheet, qabeenya, liabilites fi capital formii salphaan guutuu.",
+          "<strong>Ibsa Duraa Ilaali:</strong> PDF guutuu dura ilaali.",
+          "<strong>Kaffaltii fi Ragaa olkaa'i:</strong> <span class='highlight'>10,000 ETB</span> kaffali. Ragaa kaffaltii fi lakk. bilbilaa olkaa'i.",
+          "<strong>Mirkanneessaa Admin:</strong> Admin saffisaan si mirkaneessa. Eeyyamame booda buusi ykn maxxansi!",
+          "<strong>Daawwachuu/Maxxansuu daangaa:</strong> Report waggaa keessa <span class='highlight'>3</span> yeroo argachuu dandeessa. Bara hedduuf ni deeggara!",
+          "<strong>Boodarra:</strong> <span style='color:#2d9cdb;'>Formii salphaa guuti</span> galmee balance sheet fi ibsa maallaqaa kee haala gaariin olkaa'uuf."
+        ],
+        ctaBox: "<span>Amma jalqabi &amp; argadhu!</span><br><span style='font-size:1.1em;'>Formii guuti, namoota kee gargaari, <b>30% komishiinii</b> saffisaan argadhu.<br><span style='color:#fff200;'>Kaffaltiin kee nagaa dha!</span><br><span style='font-size:1em;color:#fff;'>Daqiiqaa <b>10</b> keessatti qophaa'a – Telegram irratti ergama!</span></span>",
+        adContinue: "Itti fufi &amp; Daqiiqaa <span class='ad-highlight'>10</span> keessatti argadhu!",
+        adFill: "Formii guuti · Namoota kee gargaari · <b>Komishiinii saffisaa!</b>",
+        adArrow: "As tuqi →",
+        whyTitle: "🎉 <span style='color:#249e49;'>Tajaajila Maallaqaa Saffisaa Kanaan Maaliif Filattu?</span> 🎉",
+        ben1: "Faayidaa Walii Galaa", ben1desc: "Namni hundi ni fayyada", ben1extra: "<b>30%</b> komishiinii argadhu – Bulchaa baankii qooduuf <b style='color:#ffbb00;'>40%</b>!",
+        ben2: "Saffisa", ben2desc: "Yeroo kee oolchii!", ben2extra: "Ibsa mirkanaa'e daqiiqaa <b>10</b> keessatti argadhu!",
+        ben3: "Sirrii fi Amanamaa", ben3desc: "Dogoggorri hin jiru", ben3extra: "Ogeessota irraa omishame – yeroo hunda sirrii.",
+        ben4: "Galii Keesaa Guddisi", ben4desc: "Mindaa dabali!", ben4extra: "Namoota baay'ee qooduu – <b style='color:#ffbb00;'>40% komishiinii!</b>",
+        othAdv: "Faayidaalee biroo:",
+        adv1: "Waraqaa hin barbaachisu:", adv1desc: "100% dijitaalaa",
+        adv2: "Afaan sadii deeggara:", adv2desc: "Amaariffaa, Afaan Oromoo, Ingliffaa",
+        adv3: "Kaffaltii nagaadhaan:", adv3desc: "Komishiinii kee ni mirkanaa'a",
+        adv4: "<b>Ibsa saffisaa Telegram irratti</b>",
+        adv5: "<b>Galmee waggaa</b> yeroo hundaaf",
+        shareEarn: "Qoodi & Mindaa Argadhu!",
+        shareEarnText: "Tajaajila kana bulchoota baankii fi gargaartota liqii waliin qoodi – <br><span style='color:#ffbb00;'>Hangaa <b>40% komishiinii</b> saffisaan argadhu!</span>",
+        orCopy: "Yookaan link kana qodi:",
+        copy: "Qodi",
+        copied: "Qoodame!", 
+        instaCopy: "Link ni qoodame! Instagram DM ykn Bio keessa qoodi."
+      }
+    };
+    // Language states
+    let language = 'en';
+    function switchLanguage() {
+      if (language === 'en') language = 'am';
+      else if (language === 'am') language = 'om';
+      else language = 'en';
+      updateLanguage();
+    }
+    function updateLanguage() {
+      const l = lang[language];
+      document.documentElement.lang = language;
+      document.getElementById('navTitle').textContent = l.navTitle;
+      document.getElementById('langBtn').textContent = l.langBtn;
+      document.getElementById('mainTitle').textContent = l.mainTitle;
+      document.getElementById('byText').textContent = l.byText;
+      document.getElementById('authorName').textContent = l.authorName;
+      document.getElementById('mainSlogan').textContent = l.mainSlogan;
+      document.getElementById('h1').textContent = l.h1;
+      document.getElementById('tagline').innerHTML = l.tagline;
+      document.getElementById('benefitBanner').innerHTML = l.benefitBanner;
+      document.getElementById('hotlineLabel').textContent = l.hotlineLabel;
+      document.getElementById('hotlineDesc').textContent = l.hotlineDesc;
+      document.getElementById('fastLabel').textContent = l.fastLabel;
+      document.getElementById('sendLabel').textContent = l.sendLabel;
+      // Steps list
+      const steps = document.getElementById('stepsList').getElementsByTagName('li');
+      for (let i = 0; i < steps.length; i++) steps[i].innerHTML = l.steps[i];
+      document.getElementById('ctaBox').innerHTML = l.ctaBox;
+      document.getElementById('adContinue').innerHTML = l.adContinue;
+      document.getElementById('adFill').innerHTML = l.adFill;
+      document.getElementById('adArrow').textContent = l.adArrow;
+      document.getElementById('whyTitle').innerHTML = l.whyTitle;
+      document.getElementById('ben1').textContent = l.ben1;
+      document.getElementById('ben1desc').textContent = l.ben1desc;
+      document.getElementById('ben1extra').innerHTML = l.ben1extra;
+      document.getElementById('ben2').textContent = l.ben2;
+      document.getElementById('ben2desc').textContent = l.ben2desc;
+      document.getElementById('ben2extra').innerHTML = l.ben2extra;
+      document.getElementById('ben3').textContent = l.ben3;
+      document.getElementById('ben3desc').textContent = l.ben3desc;
+      document.getElementById('ben3extra').innerHTML = l.ben3extra;
+      document.getElementById('ben4').textContent = l.ben4;
+      document.getElementById('ben4desc').textContent = l.ben4desc;
+      document.getElementById('ben4extra').innerHTML = l.ben4extra;
+      document.getElementById('othAdv').textContent = l.othAdv;
+      // List
+      document.getElementById('adv1').textContent = l.adv1;
+      document.getElementById('adv1desc').textContent = l.adv1desc;
+      document.getElementById('adv2').textContent = l.adv2;
+      document.getElementById('adv2desc').textContent = l.adv2desc;
+      document.getElementById('adv3').textContent = l.adv3;
+      document.getElementById('adv3desc').textContent = l.adv3desc;
+      document.getElementById('adv4').innerHTML = l.adv4;
+      document.getElementById('adv5').innerHTML = l.adv5;
+      document.getElementById('shareEarn').textContent = l.shareEarn;
+      document.getElementById('shareEarnText').innerHTML = l.shareEarnText;
+      document.getElementById('orCopy').textContent = l.orCopy;
+      document.getElementById('copyBtn').textContent = l.copy;
+    }
+    // For responsive navbar
+    function toggleNav() {
+      var el = document.getElementById('navActions');
+      el.classList.toggle('active');
+    }
+    // Set initial language on first load
+    document.addEventListener('DOMContentLoaded', updateLanguage, false);
+  </script>
 </body>
 </html>
